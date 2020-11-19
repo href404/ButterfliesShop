@@ -1,0 +1,38 @@
+﻿@model ButterfliesShop.ViewModels.Butterfly.IndexViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" rel="stylesheet" href="~/css/butterflies-shop-styles.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="main-title">Butterflies Shop</h1>
+        <p class="into">Welcome to our Web Store, Enjoy a Wide Variety of Butterflies</p>
+        <p class="into">Our Butterflies in the Shop</p>
+
+        <button type="button" onclick="location.href='@Url.Action("Create", "Butterfly")'">Add</button>
+    </div>
+
+    <div class="img-container">
+        @foreach (var butterfly in Model.Butterflies)
+        {
+            <div class="photo-index-card">
+
+                <p>@butterfly.CommonName</p>
+                <p>@butterfly.ButterflyFamily</p>
+                <p>@butterfly.Quantity</p>
+                <p>@butterfly.Characteristics</p>
+                <p>@butterfly.CreatedDate</p>
+
+                <div class="photo-display">
+                    <img class="photo-display-img" src="@Url.Action("GetImage", new { id = butterfly.Id })" />
+                </div>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

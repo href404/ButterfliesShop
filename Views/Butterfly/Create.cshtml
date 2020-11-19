@@ -1,0 +1,50 @@
+﻿@model ButterfliesShop.Models.Butterfly
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link type="text/css" rel="stylesheet" href="~/css/butterflies-shop-styles.css" />
+</head>
+<body>
+
+    <div class="container">
+        <form method="post" asp-action="Create" enctype="multipart/form-data">
+            <div class="form-field">
+                <label asp-for="CommonName"></label>
+                <input asp-for="CommonName" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="ButterflyFamily"></label>
+                <select asp-for="ButterflyFamily" 
+                        asp-items="Html.GetEnumSelectList<ButterfliesShop.Models.Family>()">
+                    <option selected="selected" value="">Select</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Characteristics"></label>
+                <input asp-for="Characteristics" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" />
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Photo"></label>
+                <input asp-for="Photo" type="file" />
+            </div>
+
+            <div asp-validation-summary="All"></div>
+            
+            <div class="form-field">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
